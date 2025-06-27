@@ -1,38 +1,54 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FiCheckSquare } from "react-icons/fi";
 
-const Header = () => {
+const Header = ({ setSearchResults }) => {
+  // Satu helper agar tidak menulis fungsi yang sama berkali-kali
+  const clearResults = () => setSearchResults?.(null);
+
   return (
-    <header className="bg-white p-4 shadow-sm">
-      <nav className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <svg
-            className="w-6 h-6 text-blue-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+    <header className="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
+        {/* Logo + judul */}
+        <h1 className="text-2xl font-bold">
+          <Link
+            to="/"
+            className="text-blue-600 flex items-center gap-2"
+            onClick={clearResults}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 13l4 4L19 7"
-            ></path>
-          </svg>
-          <span className="text-xl font-bold text-gray-800">TruthCheck</span>
-        </div>
-        <ul className="flex space-x-6 text-gray-600">
-          <li>
-            <a href="#" className="hover:text-blue-600 font-medium">Beranda</a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-blue-600 font-medium">Tentang</a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-blue-600 font-medium">Populer</a>
-          </li>
-        </ul>
-      </nav>
+            <FiCheckSquare />
+            TruthCheck
+          </Link>
+        </h1>
+
+        {/* Navigasi desktop */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link
+            to="/"
+            className="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium"
+            onClick={clearResults}
+          >
+            Beranda
+          </Link>
+
+          <Link
+            to="/tentang"
+            className="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium"
+          >
+            Tentang
+          </Link>
+
+          <Link
+            to="/populer"
+            className="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium"
+            onClick={clearResults}
+          >
+            Populer
+          </Link>
+        </nav>
+
+        {/* Tempatkan tombol hamburger di sini untuk tampilan mobile jika diperlukan */}
+      </div>
     </header>
   );
 };
