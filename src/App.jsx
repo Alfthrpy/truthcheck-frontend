@@ -27,6 +27,8 @@ function App() {
           {/* Hasil pencarian sekarang juga dalam bentuk card yang menarik */}
           <PopularCheckItem
             claimText={searchResults.claim_text}
+            validProbability={searchResults.valid_probability}
+            hoaxProbability={searchResults.hoax_probability}
             accuracyPercentage={searchResults.accuracy_percentage}
             supportingArticles={searchResults.supporting_articles}
           />

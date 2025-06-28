@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiTarget, FiCpu, FiCheckCircle, FiShield, FiEye, FiZap, FiUsers, FiArrowRight } from 'react-icons/fi';
+import truthImg from '../assets/truth.jpg';
 
 // Komponen kecil untuk kartu Nilai-Nilai dan Teknologi agar kode lebih rapi
 const FeatureCard = ({ icon, title, children }) => (
@@ -50,17 +51,15 @@ const AboutPage = () => {
           </div>
           {/* Anda bisa mengganti ikon ini dengan gambar atau ilustrasi */}
           <div className="bg-white/50 backdrop-blur-lg rounded-2xl shadow-xl p-8 md:p-12 border border-white/20">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <div className="text-center md:text-left">
-                      <FiTarget size={80} className="mx-auto md:mx-0 text-blue-500 mb-6"/>
-                      <p className="text-xl text-gray-700 leading-relaxed">
-                          Kami bertekad untuk menjadi garda terdepan dalam perang melawan hoaks dengan menyediakan platform yang tidak hanya memeriksa fakta, tetapi juga mengedukasi pengguna tentang cara berpikir kritis terhadap informasi yang diterima.
-                      </p>
-                  </div>
-                  <div className="h-64 md:h-full bg-gradient-to-br from-blue-400 to-teal-400 rounded-lg">
-                      {/* Placeholder untuk gambar atau visualisasi data */}
-                  </div>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="text-center md:text-left">
+                <FiTarget size={80} className="mx-auto md:mx-0 text-blue-500 mb-6"/>
+                <p className="text-xl text-gray-700 leading-relaxed">
+                  Kami bertekad untuk menjadi garda terdepan dalam perang melawan hoaks dengan menyediakan platform yang tidak hanya memeriksa fakta, tetapi juga mengedukasi pengguna tentang cara berpikir kritis terhadap informasi yang diterima.
+                </p>
               </div>
+              <img src={truthImg} alt="Misi Kami" className="w-full h-full object-cover rounded-lg" />
+            </div>
           </div>
         </div>
       </section>

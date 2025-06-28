@@ -13,19 +13,13 @@ const PopularChecksSection = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch(`${API_BASE_URL}/popular-checks`); //
+        const response = await fetch(`${API_BASE_URL}/popular-checks?limit=3`); //
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json(); //
         // Map API response to component props
-        const mappedData = data.map(item => ({
-          title: item.example_claim_title, //
-          claimText: item.claim_text, //
-          accuracyPercentage: item.accuracy_percentage, //
-          supportingArticles: item.supporting_articles, //
-        }));
-        setPopularChecks(mappedData);
+        setPopularChecks(data);
       } catch (err) {
         console.error("Failed to fetch popular checks:", err);
         setError(err.message);
@@ -56,10 +50,11 @@ const PopularChecksSection = () => {
         {popularChecks.map((check, index) => (
           <PopularCheckItem
             key={index}
-            title={check.title}
-            claimText={check.claimText}
-            accuracyPercentage={check.accuracyPercentage}
-            supportingArticles={check.supportingArticles}
+            claimText={check.claim_text}
+            validProbability={check.valid_probability}
+            hoaxProbability={check.hoax_probability}
+            accuracyPercentage={check.accuracy_percentage}
+            supportingArticles={check.supporting_articles}
           />
         ))}
       </div>

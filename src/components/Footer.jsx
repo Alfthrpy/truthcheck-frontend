@@ -56,7 +56,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-gray-600 hover:text-blue-600 transition-colors">
+                <a href="https://github.com/Alfthrpy/truthcheck-frontend" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-gray-600 hover:text-blue-600 transition-colors">
                   <FiGithub size={16} /> GitHub
                 </a>
               </li>
